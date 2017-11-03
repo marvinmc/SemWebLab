@@ -8,41 +8,33 @@ import java.io.PrintStream;
 
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.rdf.model.ResourceFactory;
 import org.apache.jena.sparql.vocabulary.FOAF;
+import org.apache.jena.vocabulary.RDF;
+import org.apache.jena.vocabulary.RDFS;
 
-public class GroupMember 
+public class GroupMember extends Student
 {
 	Resource instance;
-	Model model;
 	
 	
-	public GroupMember(String UID, String firstname, String lastname, String email, String interest, String school, String birthday, String website)
+	public GroupMember(Model model, String NS, String NSprefix, String UID, String firstname, String lastname, String email, String interest, String school, String birthday, String website, Integer groupnumber)
 	{
-		super();
-		
-		this.model 	= 	ModelFactory.createDefaultModel();
-		
-		//create a resource for the group member
-		model.setNsPrefix("tui", "http://data.ifs.tuwien.ac.at/study/resource");
-		this.instance 	= 	model.createResource("tui:"+UID)
-							.addProperty(FOAF.firstName, firstname)
-							.addProperty(FOAF.family_name, lastname)
-							.addProperty(FOAF.mbox, email)
-							.addProperty(FOAF.interest, interest)
-							.addProperty(FOAF.schoolHomepage, school)
-							.addProperty(FOAF.birthday, birthday)
-							.addProperty(FOAF.homepage, website);
+		super(model,NS,NSprefix,UID,firstname,lastname,email,interest,school,birthday,website);
+							model.getResource(NS+UID)
+							.addProperty(TUM.isMember,groupnumber.toString());
+							//remove old type (Student)
+							model.getResource(NS+UID)
+							.getProperty(RDF.type).remove();
+							//set new type (GroupMember)
+							model.getResource(NS+UID)
+							.addProperty(RDF.type, TUM.GroupMember);
 				
 	}
 	
-	//write the model to a turtle file
-	public void writeTurtlefile(String path, String filename) throws IOException
-	{
-		FileWriter out = new FileWriter( path+filename );
-		this.model.write(out, "Turtle");
-		out.close();
-	}
+	
 	
 
 }
