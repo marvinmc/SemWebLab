@@ -7,11 +7,11 @@ import org.apache.jena.vocabulary.RDFS;
 
 public class StudyCourse 
 {
-	public StudyCourse(Model model, String NS, String NSprefix, String UID, String label, String StudyProgram)
+	public StudyCourse(Model model, String NS, String NSprefix, String UID, String label, String StudyProgramURI)
 	{
 		super();
 		Resource res = 	model.createResource(NS+UID)
-						.addProperty(TUM.withinStudyProgram, StudyProgram)
+						.addProperty(TUM.withinStudyProgram, StudyProgramURI)
 						.addProperty(RDFS.label, label)
 						.addProperty(RDF.type, TUM.StudyCourse);
 		
