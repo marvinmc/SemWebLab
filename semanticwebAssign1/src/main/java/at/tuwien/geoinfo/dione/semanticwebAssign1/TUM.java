@@ -57,23 +57,23 @@ public class TUM {
 	static Property withinStudyProgram 	= 	(Property) TUModel.createProperty(NS, "hasCourse")
 											.addProperty(RDFS.range, StudyProgram)
 											.addProperty(RDFS.domain, StudyCourse)
-											.addProperty(RDFS.subClassOf, RDF.Property);
+											.addProperty(RDF.type, RDF.Property);
 	
 	//student attends StudyCourse
 	static Property attends 	= 	(Property) TUModel.createProperty(NS, "attends") 
 									.addProperty(RDFS.domain, Student)
 									.addProperty(RDFS.range, StudyCourse)
-									.addProperty(RDFS.subClassOf, RDF.Property);
+									.addProperty(RDF.type, RDF.Property);
 	//teacher teaches StudyCourse
 	static Property teaches		= 	(Property) TUModel.createProperty(NS, "teaches")
 									.addProperty(RDFS.domain, Teacher)
 									.addProperty(RDFS.range, StudyCourse)
-									.addProperty(RDFS.subClassOf, RDF.Property);
+									.addProperty(RDF.type, RDF.Property);
 	//GroupMember isMember Group
 	static Property isMember	=	(Property) TUModel.createProperty(NS, "isMember")
 									.addProperty(RDFS.domain, Group)
 									.addProperty(RDFS.range, GroupMember)
-									.addProperty(RDFS.subClassOf, RDF.Property);
+									.addProperty(RDF.type, RDF.Property);
 	
 
 	
