@@ -14,7 +14,7 @@ public class StudyProgram
 			super();
 			Resource res= 	model.createResource(NS+UID)
 							.addProperty(RDFS.label,label)
-							.addProperty(RDF.type, RDFS.Class);
+							.addProperty(RDF.type, TUM.StudyProgram);
 			
 			
 		}

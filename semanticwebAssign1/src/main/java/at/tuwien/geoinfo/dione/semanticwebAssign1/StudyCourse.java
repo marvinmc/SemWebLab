@@ -13,7 +13,7 @@ public class StudyCourse
 		Resource res = 	model.createResource(NS+UID)
 						.addProperty(TUM.withinStudyProgram, StudyProgram)
 						.addProperty(RDFS.label, label)
-						.addProperty(RDF.type, RDFS.Class);
+						.addProperty(RDF.type, TUM.StudyCourse);
 		
 	}
 }
