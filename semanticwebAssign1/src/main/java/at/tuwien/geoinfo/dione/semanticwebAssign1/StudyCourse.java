@@ -25,4 +25,10 @@ public class StudyCourse
 	{
 		return this.localres;
 	}
+	
+	//sets in which study programs it is mandatory....
+	public void isMandatoryIn(Resource studyprogram)
+	{
+		this.getResource().addProperty(TUM.mandatoryIn, studyprogram);
+	}
 }

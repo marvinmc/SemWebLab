@@ -43,10 +43,18 @@ public class Exercise3 {
 		//now create some courses
 		
 		StudyCourse semweb			= new StudyCourse(uni,NS,"188.399", "Introduction to semantic Web", new String[]{BusinessInformatics.getResource().getURI(), MedizinischeInformatik.getResource().getURI()});
+		
+		//for BusinessInformatics
 		StudyCourse Ecommerce		= new StudyCourse(uni,NS,"188.427", "E-Commerce",new String[]{BusinessInformatics.getResource().getURI()});
 		StudyCourse ITBasedManag	= new StudyCourse(uni,NS,"330.232", "IT-based Management", new String[]{BusinessInformatics.getResource().getURI(),MedizinischeInformatik.getResource().getURI()});
 		StudyCourse	ModelingSim		= new StudyCourse(uni,NS,"101.455", "Modeling and Simulation", new String[]{BusinessInformatics.getResource().getURI()});
+		
+		//for GeoIT 
 		StudyCourse SeminarDerGeow	= new StudyCourse(uni,NS,"120.025", "Seminar der Geowissenschaften (GeoIT)", new String[]{PhDGeoIT.getResource().getURI()});
+		
+		
+		
+		
 		
 		//create students
 		Student marvin	= new Student(uni, NS, "0830619","Marvin", "Mc Cutchan", "marvin.mccutchan@geo.tuwien.ac.at", "GIS" ,"https://www.kth.se/", "10-88","https://www.geo.tuwien.ac.at/staff/marvin-mc-cutchan/");
@@ -54,8 +62,12 @@ public class Exercise3 {
 		marvin.visitsCourse(SeminarDerGeow);
 		
 		
+		//fiktive students (we need at least 5 of them)
+		Student indy	= new Student(uni,NS, "123456", "Indiana", "Jones", "indian.jones@geo.tuwien.ac.at", "Archeology", "", "07-88", "https://de.wikipedia.org/wiki/Indiana_Jones" );
+		indy.visitsCourse(SeminarDerGeow);
 		
-
+		Student dagobert = new Student(uni, NS, "123654", "Dagobert", "Duck", "dagobert.duck@geo.tuwien.ac.at", "Money", "", "12-47", "https://de.wikipedia.org/wiki/Dagobert_Duck");
+		dagobert.visitsCourse(Ecommerce);
 		
 		//write to turtle file
 		System.out.println("write out file");
