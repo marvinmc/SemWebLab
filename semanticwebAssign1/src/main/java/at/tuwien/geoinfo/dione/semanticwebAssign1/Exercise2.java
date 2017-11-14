@@ -4,8 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.Property;
 import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
@@ -36,7 +34,7 @@ public class Exercise2
 		temp.setNsPrefix(rdfsNSPrefix, rdfsNS);
 		temp.setNsPrefix(tumNSprefix, tumNS);
 		temp.setNsPrefix(rdfNSPrefix, rdfNS);
-		FileWriter out = new FileWriter( "C:/EigeneUebungen/EinfuehrungSemWeb/Assignment1/Ex1/"+"rdfsmodel.ttl" );
+		FileWriter out = new FileWriter( "C:/EigeneUebungen/EinfuehrungSemWeb/Assignment1/2_RDFS-Model/"+"TUM_04.ttl" );
 		temp.write(out, "Turtle");
 		
 			out.close();

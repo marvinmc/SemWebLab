@@ -7,13 +7,22 @@ import org.apache.jena.vocabulary.RDFS;
 
 public class StudyCourse 
 {
-	public StudyCourse(Model model, String NS, String NSprefix, String UID, String label, String StudyProgramURI)
+	Resource localres;
+	
+	public StudyCourse(Model model, String NS, String UID, String label, String[] StudyProgramURIs)
 	{
 		super();
-		Resource res = 	model.createResource(NS+UID)
-						.addProperty(TUM.withinStudyProgram, StudyProgramURI)
+		this.localres = model.createResource(NS+UID)
 						.addProperty(RDFS.label, label)
 						.addProperty(RDF.type, TUM.StudyCourse);
 		
+		Resource course = model.getResource(NS+UID);
+		
+		for(int i = 0;i<StudyProgramURIs.length;i++)
+			course.addProperty(TUM.withinStudyProgram, StudyProgramURIs[i]);
+	}
+	public Resource getResource()
+	{
+		return this.localres;
 	}
 }

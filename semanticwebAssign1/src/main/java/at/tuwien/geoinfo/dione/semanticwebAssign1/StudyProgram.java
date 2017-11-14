@@ -6,16 +6,21 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 
-public class StudyProgram 
+public class StudyProgram
 {
-
-		public StudyProgram(Model model, String NS, String NSprefix, String UID, String label)
+		Resource localres;
+		
+		public StudyProgram(Model model, String NS, String UID, String label)
 		{
 			super();
-			Resource res= 	model.createResource(NS+UID)
+			this.localres= 	model.createResource(NS+UID)
 							.addProperty(RDFS.label,label)
 							.addProperty(RDF.type, TUM.StudyProgram);
 			
 			
+		}
+		public Resource getResource()
+		{
+			return this.localres;
 		}
 }

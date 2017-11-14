@@ -38,12 +38,12 @@ public class Exercises {
 		model.setNsPrefix(tumNSprefix, tumNS);
 		
 		//use matrikel# as UID,
-		Student marvin = new Student(model, NS,NSPrefix,"0830619","Marvin", "Mc Cutchan", "marvin.mccutchan@geo.tuwien.ac.at", "GIS" ,"https://www.kth.se/", "10-88","https://www.geo.tuwien.ac.at/staff/marvin-mc-cutchan/");
+		Student marvin = new Student(model, NS,"0830619","Marvin", "Mc Cutchan", "marvin.mccutchan@geo.tuwien.ac.at", "GIS" ,"https://www.kth.se/", "10-88","https://www.geo.tuwien.ac.at/staff/marvin-mc-cutchan/");
 		try 
 		{
 			//write to turtle file
 			System.out.println("outup");
-			FileWriter out = new FileWriter( "C:/EigeneUebungen/EinfuehrungSemWeb/Assignment1/Ex1/"+"marvin.ttl" );
+			FileWriter out = new FileWriter( "C:/EigeneUebungen/EinfuehrungSemWeb/Assignment1/1_FOAF/"+"Foaf_04_mccutchan.ttl" );
 			model.write(out, "Turtle");
 			out.close();
 			

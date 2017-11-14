@@ -54,10 +54,16 @@ public class TUM {
 	
 	
 	//hasCourse Relation: StudyCourse withinStudyProgram StudyProgram. E.g.:  Linear_Algebra withinStudyProgram Technische_Mathematik
-	static Property withinStudyProgram 	= 	(Property) TUModel.createProperty(NS, "hasCourse")
+	static Property withinStudyProgram 	= 	(Property) TUModel.createProperty(NS, "withinStudyProgram")
 											.addProperty(RDFS.range, StudyProgram)
 											.addProperty(RDFS.domain, StudyCourse)
 											.addProperty(RDF.type, RDF.Property);
+	
+	//describes in which Study Programmes this course is mandatory
+	static Property mandatoryIn = (Property) TUModel.createProperty(NS, "mandatoryIn")
+												.addProperty(RDFS.range, StudyProgram)
+												.addProperty(RDFS.domain, StudyCourse)
+												.addProperty(RDF.type, RDF.Property);
 	
 	//student attends StudyCourse
 	static Property attends 	= 	(Property) TUModel.createProperty(NS, "attends") 
