@@ -20,13 +20,13 @@ public class GroupMember
 	Resource instance;
 	
 	
-	public GroupMember(Model model, String NS, String groupURI, String studentURI, String courseURI)
+	public GroupMember(Model model, String NS, String UID, Resource Group, Resource student)
 	{
 		//First create a UID- its a combination of the student-URI, the course-URI, and, groupID
-		String UID			= studentURI+courseURI+groupURI;
-							model.createResource(NS+UID)
-							.addProperty(TUM.isMember,groupURI)
-							.addProperty(TUM.isStudent, studentURI)
+		//String UID			= studentURI+courseURI+group.getURI();
+		this.instance		= model.createResource(NS+UID)
+							.addProperty(TUM.isMember,Group)
+							.addProperty(TUM.isStudent, student)
 							.addProperty(RDFS.subClassOf, FOAF.Person)
 							.addProperty(RDF.type,TUM.GroupMember);			
 	}

@@ -87,6 +87,11 @@ public class TUM {
 									.addProperty(RDFS.domain, FOAF.Person)//theoretically it does not have to be just a groupmember. But for sure it is a person
 									.addProperty(RDF.type, RDF.Property);
 	
+	//a group within a course
+	static Property groupWithin =	(Property) TUModel.createProperty(NS, "groupWithin")
+									.addProperty(RDFS.domain, TUM.Group)
+									.addProperty(RDFS.range, TUM.StudyCourse)
+									.addProperty(RDF.type, RDF.Property);
 
 	
 	public TUM()

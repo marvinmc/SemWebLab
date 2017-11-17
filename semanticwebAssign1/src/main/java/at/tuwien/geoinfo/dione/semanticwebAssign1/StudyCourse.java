@@ -9,7 +9,7 @@ public class StudyCourse
 {
 	Resource localres;
 	
-	public StudyCourse(Model model, String NS, String UID, String label, String[] StudyProgramURIs)
+	public StudyCourse(Model model, String NS, String UID, String label, Resource[] StudyProgramURIs)
 	{
 		super();
 		this.localres = model.createResource(NS+UID)
@@ -26,7 +26,7 @@ public class StudyCourse
 		return this.localres;
 	}
 	
-	//sets in which study programs it is mandatory....
+	//sets in which study programs is mandatory....
 	public void isMandatoryIn(Resource studyprogram)
 	{
 		this.getResource().addProperty(TUM.mandatoryIn, studyprogram);

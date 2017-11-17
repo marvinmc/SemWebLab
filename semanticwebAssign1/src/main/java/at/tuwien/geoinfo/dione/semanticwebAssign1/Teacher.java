@@ -8,22 +8,25 @@ import org.apache.jena.vocabulary.RDFS;
 
 public class Teacher 
 {
-	public Teacher(Model model, String NS,String firstname, String lastname, String UID ,String[] courseURIs)
+	Resource localres;
+	public Teacher(Model model, String NS,String firstname, String lastname, String UID)
 	{
-		model.createResource(NS+UID)
-		.addProperty(RDF.type, TUM.Teacher)
-		.addProperty(FOAF.firstName, firstname)
-		.addProperty(FOAF.family_name, lastname)
-		.addProperty(RDFS.subClassOf, FOAF.Person);
-		//now add courses
-		Resource teacher = model.getResource(NS+UID);
+		this. localres = 	model.createResource(NS+UID)
+							.addProperty(RDF.type, TUM.Teacher)
+							.addProperty(FOAF.firstName, firstname)
+							.addProperty(FOAF.family_name, lastname)
+							.addProperty(RDFS.subClassOf, FOAF.Person);
 		
-		//add each course one by one
-		for(int i = 0; i<courseURIs.length;i++)
-		{
-			teacher.addProperty(TUM.teaches, courseURIs[i]);
-		}
-		
-		
+	}
+	
+	public Resource getResource()
+	{
+		return this.localres;
+	}
+	
+	//add a course the person teaches
+	public void teaches(Resource course)
+	{
+		this.getResource().addProperty(TUM.teaches, course);
 	}
 }

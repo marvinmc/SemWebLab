@@ -31,4 +31,8 @@ public class Student
 	{
 		this.getResource().addProperty(TUM.attends, course.getResource());
 	}
+	public void knowsStudent(Student otherstudent)
+	{
+		this.getResource().addProperty(FOAF.knows, otherstudent.getResource());
+	}
 }
