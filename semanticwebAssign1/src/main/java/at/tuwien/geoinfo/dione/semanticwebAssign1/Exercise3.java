@@ -66,6 +66,19 @@ public class Exercise3 {
 		marvin.visitsCourse(semweb);
 		marvin.visitsCourse(SeminarDerGeow);
 		
+		Student xheneta = new Student(uni, NS,"01527976","Xheneta", "Bilalli Shkodra", "xhenetabilalli@gmail.com", "Web Scraping" ,"Technische Universität Wien", "02-93","https://www.ait.ac.at/ueber-das-ait/researcher-profiles/?tx_aitprofile_pi1%5Bname%5D=Bilalli-Shkodra-Xheneta");
+		xheneta.visitsCourse(Ecommerce);
+		xheneta.visitsCourse(ModelingSim);
+		xheneta.visitsCourse(ITBasedManag);
+		xheneta.visitsCourse(semweb);
+		
+		
+		
+		Student rilind 	= new Student(uni, NS,"01527985","Rilind", "Shkodra", "rilindshkodra2@gmail.com", "Web development" ,"Technische Universität Wien", "06-93","https://tuwel.tuwien.ac.at/user/profile.php?id=84445");
+		rilind.visitsCourse(Ecommerce);
+		rilind.visitsCourse(ModelingSim);
+		rilind.visitsCourse(ITBasedManag);
+		rilind.visitsCourse(semweb);
 		
 		//fiktive students (we need at least 5 of them)
 		Student indy		= new Student(uni,NS, "123456", "Indiana", "Jones", "indian.jones@geo.tuwien.ac.at", "Archeology", "", "07-88", "https://de.wikipedia.org/wiki/Indiana_Jones" );
@@ -85,7 +98,8 @@ public class Exercise3 {
 	//Create groupmembers
 		//group 04
 		GroupMember marv_mem = new GroupMember(uni, NS,"group04_188.399_mccutchan", gr4.getResource(), marvin.getResource());
-		// others come here....
+		GroupMember xheny_mem = new GroupMember(uni, NS,"group04_188.399_BilalliShkodra", gr4.getResource(), xheneta.getResource());
+		GroupMember lindi_mem = new GroupMember(uni, NS,"group04_188.399_Shkodra", gr4.getResource(), rilind.getResource());
 		
 		//group 400 (fiktive group)
 		GroupMember indy_mem 		= new GroupMember(uni, NS,"group400_188.399_indy", gr400.getResource(),indy.getResource());
